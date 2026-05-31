@@ -1,2 +1,6 @@
 libgl1
-libglu1-mesa
+   libglu1-mesa
+   libxrender1
+   libxext6
+   libsm6
+   libice6
