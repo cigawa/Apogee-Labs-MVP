@@ -16,7 +16,7 @@ from typing import Optional
 
 from cad_engine import FixtureSpec, BoltPattern
 
-DEFAULT_MODEL = "claude-opus-4-20250514"
+DEFAULT_MODEL = "claude-sonnet-4-6"
 
 
 # --------------------------------------------------------------------------- #
