@@ -1,0 +1,11 @@
+# Core (install cleanly everywhere)
+streamlit>=1.30
+anthropic>=0.40
+scikit-learn>=1.3
+pandas>=1.5
+
+# CAD engine — installs cleanly on Linux/macOS/Windows-x64.
+# On Windows ARM it may fail to build (no wheel). If so, either:
+#   (a) run the app on Streamlit Community Cloud (Linux), or
+#   (b) comment cadquery out — the app still runs (CAD disabled, profile+report work).
+cadquery>=2.4
