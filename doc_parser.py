@@ -87,7 +87,7 @@ def extract_with_claude(path: str, api_key: Optional[str] = None) -> dict:
 
         client = anthropic.Anthropic(api_key=api_key)
         msg = client.messages.create(
-            model="claude-opus-4-20250514",
+            model="claude-sonnet-4-6",
             max_tokens=1500,
             system=EXTRACTION_SYSTEM,
             messages=[{"role": "user", "content": [
