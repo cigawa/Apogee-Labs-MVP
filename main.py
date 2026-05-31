@@ -26,7 +26,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import streamlit as st
 import pandas as pd
 
-from retriever import VibrationRetriever
+from unified_retriever import UnifiedRetriever
 from claude_client import generate_fixture_spec, generate_prose
 from doc_parser import extract_with_claude
 from feedback import save_feedback, feedback_stats
@@ -157,7 +157,7 @@ if st.button("⚙️ Generate Fixture + Profile + Report", type="primary"):
         "known_resonances_hz": resonances or "Not specified",
     }
 
-    retriever = VibrationRetriever()
+    retriever = UnifiedRetriever()
     chunks = retriever.all_chunks()
 
     with st.spinner("Designing fixture..."):

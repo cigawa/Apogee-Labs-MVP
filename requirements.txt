@@ -9,3 +9,11 @@ pandas>=1.5
 #   (a) run the app on Streamlit Community Cloud (Linux), or
 #   (b) comment cadquery out — the app still runs (CAD disabled, profile+report work).
 cadquery>=2.4
+
+# RAG (LlamaIndex). The app falls back to TF-IDF if these are absent or if the
+# knowledge_base/ folder is empty, so they are optional until you add documents.
+# The HuggingFace embeddings pull in torch (large). On Streamlit Cloud this is
+# fine; locally on Windows ARM, prefer running RAG on the Cloud deployment.
+llama-index-core>=0.11
+llama-index-readers-file>=0.2
+llama-index-embeddings-huggingface>=0.3
