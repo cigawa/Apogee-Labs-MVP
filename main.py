@@ -39,17 +39,33 @@ from templates import (
     REPORT_SYSTEM, build_report_prompt,
 )
 
-st.set_page_config(page_title="Apogee Labs — Vibration Test Automation",
-                   page_icon="🛰️", layout="wide")
+st.set_page_config(
+    page_title="Apogee Labs — Vibration Test Automation",
+    page_icon="🛰️", 
+    layout="wide"
+)
 
-# On Streamlit Cloud the API key arrives via st.secrets; copy it into the
-# environment variable the rest of the code (and the anthropic SDK) reads.
-# Locally, an already-set environment variable takes precedence.
-try:
-    if not os.environ.get("ANTHROPIC_API_KEY") and "ANTHROPIC_API_KEY" in st.secrets:
-        os.environ["ANTHROPIC_API_KEY"] = st.secrets["ANTHROPIC_API_KEY"]
-except Exception:
-    pass  # st.secrets may not exist locally; that's fine
+# ====================== CUSTOM FUTURISTIC FONT ======================
+st.markdown("""
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&display=swap');
+
+    html, body, [class*="css"] {
+        font-family: 'Exo 2', sans-serif !important;
+    }
+
+    h1, h2, h3, h4, h5, h6, .stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {
+        font-family: 'Exo 2', sans-serif !important;
+        font-weight: 600;
+    }
+
+    .stButton>button {
+        font-family: 'Exo 2', sans-serif;
+        font-weight: 600;
+    }
+    </style>
+""", unsafe_allow_html=True)
+# ===================================================================
 
 # --- session state ----------------------------------------------------------
 for key in ("results", "extracted"):
