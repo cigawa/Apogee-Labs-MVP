@@ -43,7 +43,6 @@ st.set_page_config(
     page_icon="🛰️", 
     layout="wide"
 )
-
 # ====================== QUINDAR-INSPIRED STYLING v4 ======================
 st.markdown("""
     <style>
@@ -63,7 +62,7 @@ st.markdown("""
         color: #0F172A !important;
     }
 
-    /* Light inputs - Text, Textarea, Select */
+    /* Light inputs */
     .stTextInput > div > div > input,
     .stTextArea > div > div > textarea,
     .stSelectbox > div > div > div[role="combobox"],
@@ -82,7 +81,50 @@ st.markdown("""
     }
 
     .stNumberInput button {
-        background-color: #E2E8F
+        background-color: #E2E8F0 !important;
+        color: #0F172A !important;
+    }
+
+    /* File Uploader */
+    [data-testid="stFileUploader"] > div > div {
+        background-color: #F8FAFC !important;
+        border: 2px dashed #94A3B8 !important;
+        border-radius: 8px !important;
+        color: #0F172A !important;
+    }
+
+    [data-testid="stFileUploader"] label {
+        color: #0F172A !important;
+    }
+
+    /* Section Headers */
+    .stMarkdown h2 {
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        color: #0F172A !important;
+        margin-top: 2.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    h1 {
+        font-size: 2.4rem !important;
+        font-weight: 700 !important;
+        letter-spacing: -0.03em;
+        color: #0F172A !important;
+    }
+
+    /* Buttons */
+    .stButton>button {
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        border-radius: 8px;
+    }
+    </style>
+""", unsafe_allow_html=True)
+# =====================================================================
+
 # --- session state ----------------------------------------------------------
 for key in ("results", "extracted"):
     st.session_state.setdefault(key, None)
