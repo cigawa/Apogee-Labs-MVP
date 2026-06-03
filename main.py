@@ -38,35 +38,57 @@ from templates import (
     RECOMMENDATIONS_SYSTEM, build_recommendations_prompt,
     REPORT_SYSTEM, build_report_prompt,
 )
-
 st.set_page_config(
     page_title="Apogee Labs — Vibration Test Automation",
     page_icon="🛰️", 
     layout="wide"
 )
 
-# ====================== QUINDAR-STYLE FONT ======================
+# ====================== QUINDAR-INSPIRED STYLING ======================
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
+    /* Overall */
     html, body, [class*="css"] {
         font-family: 'Space Grotesk', system-ui, sans-serif !important;
     }
 
-    h1, h2, h3, h4, h5, h6 {
-        font-family: 'Space Grotesk', sans-serif !important;
-        font-weight: 600;
+    /* White background + dark text */
+    .stApp {
+        background-color: #FFFFFF !important;
+    }
+    
+    .stMarkdown, .stMarkdown p, .stTextInput label, .stSelectbox label,
+    .stNumberInput label, .stTextArea label, .stFileUploader label {
+        color: #0F172A !important;
     }
 
+    /* Headings - bold + uppercase */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Space Grotesk', sans-serif !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: -0.02em;
+        color: #0F172A !important;
+    }
+
+    /* Buttons */
     .stButton>button {
         font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* Tabs */
+    .stTabs [data-baseweb="tab"] {
+        text-transform: uppercase;
         font-weight: 600;
     }
     </style>
 """, unsafe_allow_html=True)
-# ===============================================================
-
+# =====================================================================
 # --- session state ----------------------------------------------------------
 for key in ("results", "extracted"):
     st.session_state.setdefault(key, None)
