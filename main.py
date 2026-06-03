@@ -44,7 +44,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# ====================== QUINDAR-INSPIRED STYLING v3 ======================
+# ====================== QUINDAR-INSPIRED STYLING v4 ======================
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
@@ -58,72 +58,31 @@ st.markdown("""
         background-color: #FFFFFF !important;
     }
 
-    /* Text color */
+    /* Text */
     .stMarkdown, p, label {
         color: #0F172A !important;
     }
 
-    /* Light input fields */
+    /* Light inputs - Text, Textarea, Select */
     .stTextInput > div > div > input,
     .stTextArea > div > div > textarea,
     .stSelectbox > div > div > div[role="combobox"],
-    .stNumberInput > div > div > input {
+    .stSelectbox > div > div > div[data-baseweb="select"] {
         background-color: #F8FAFC !important;
         color: #0F172A !important;
         border: 1px solid #CBD5E1 !important;
         border-radius: 8px !important;
     }
 
-    /* Fix number input buttons */
-    .stNumberInput button {
-        background-color: #F1F5F9 !important;
-        color: #0F172A !important;
-    }
-
-    /* File uploader */
-    .stFileUploader > div > div {
+    /* Number Input */
+    .stNumberInput > div > div > input {
         background-color: #F8FAFC !important;
-        border: 2px dashed #94A3B8 !important;
-        border-radius: 8px !important;
-    }
-
-    .stFileUploader label {
         color: #0F172A !important;
+        border: 1px solid #CBD5E1 !important;
     }
 
-    /* Section headers */
-    .stMarkdown h2 {
-        text-transform: uppercase;
-        font-weight: 700;
-        letter-spacing: 0.8px;
-        color: #0F172A !important;
-        margin-top: 2.2rem !important;
-        margin-bottom: 1.2rem !important;
-    }
-
-    /* Main title */
-    h1 {
-        font-size: 2.4rem !important;
-        font-weight: 700 !important;
-        letter-spacing: -0.03em;
-    }
-
-    /* Buttons */
-    .stButton>button {
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.8px;
-        border-radius: 8px;
-    }
-
-    /* Tabs */
-    .stTabs [data-baseweb="tab"] {
-        text-transform: uppercase;
-        font-weight: 600;
-    }
-    </style>
-""", unsafe_allow_html=True)
-# =====================================================================
+    .stNumberInput button {
+        background-color: #E2E8F
 # --- session state ----------------------------------------------------------
 for key in ("results", "extracted"):
     st.session_state.setdefault(key, None)
