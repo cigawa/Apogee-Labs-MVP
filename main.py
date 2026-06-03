@@ -39,7 +39,7 @@ from templates import (
     REPORT_SYSTEM, build_report_prompt,
 )
 st.set_page_config(
-    page_title="Apogee Labs — Vibration Test Automation",
+    page_title="APOGEE LABS — VIBRATION TEST AUTOMATION",
     page_icon="🛰️", 
     layout="wide"
 )
