@@ -48,19 +48,19 @@ st.set_page_config(
 # ====================== CUSTOM FUTURISTIC FONT ======================
 st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
     html, body, [class*="css"] {
-        font-family: 'Exo 2', sans-serif !important;
+        font-family: 'Space Grotesk', sans-serif !important;
     }
 
     h1, h2, h3, h4, h5, h6, .stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {
-        font-family: 'Exo 2', sans-serif !important;
+        font-family: 'Space Grotesk', sans-serif !important;
         font-weight: 600;
     }
 
     .stButton>button {
-        font-family: 'Exo 2', sans-serif;
+        font-family: 'Space Grotesk', sans-serif;
         font-weight: 600;
     }
     </style>
