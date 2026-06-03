@@ -43,83 +43,24 @@ st.set_page_config(
     page_icon="🛰️", 
     layout="wide"
 )
-# ====================== QUINDAR-INSPIRED STYLING v4 ======================
+
+# ====================== SIMPLE SPACE GROTESK STYLING ======================
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-    /* Base */
     html, body, [class*="css"] {
         font-family: 'Space Grotesk', system-ui, sans-serif !important;
     }
 
-    .stApp {
-        background-color: #FFFFFF !important;
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Space Grotesk', sans-serif !important;
+        font-weight: 600 !important;
     }
 
-    /* Text */
-    .stMarkdown, p, label {
-        color: #0F172A !important;
-    }
-
-    /* Light inputs */
-    .stTextInput > div > div > input,
-    .stTextArea > div > div > textarea,
-    .stSelectbox > div > div > div[role="combobox"],
-    .stSelectbox > div > div > div[data-baseweb="select"] {
-        background-color: #F8FAFC !important;
-        color: #0F172A !important;
-        border: 1px solid #CBD5E1 !important;
-        border-radius: 8px !important;
-    }
-
-    /* Number Input */
-    .stNumberInput > div > div > input {
-        background-color: #F8FAFC !important;
-        color: #0F172A !important;
-        border: 1px solid #CBD5E1 !important;
-    }
-
-    .stNumberInput button {
-        background-color: #E2E8F0 !important;
-        color: #0F172A !important;
-    }
-
-    /* File Uploader */
-    [data-testid="stFileUploader"] > div > div {
-        background-color: #F8FAFC !important;
-        border: 2px dashed #94A3B8 !important;
-        border-radius: 8px !important;
-        color: #0F172A !important;
-    }
-
-    [data-testid="stFileUploader"] label {
-        color: #0F172A !important;
-    }
-
-    /* Section Headers */
-    .stMarkdown h2 {
-        text-transform: uppercase;
-        font-weight: 700;
-        letter-spacing: 0.8px;
-        color: #0F172A !important;
-        margin-top: 2.5rem !important;
-        margin-bottom: 1.5rem !important;
-    }
-
-    h1 {
-        font-size: 2.4rem !important;
-        font-weight: 700 !important;
-        letter-spacing: -0.03em;
-        color: #0F172A !important;
-    }
-
-    /* Buttons */
     .stButton>button {
+        font-family: 'Space Grotesk', sans-serif;
         font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.8px;
-        border-radius: 8px;
     }
     </style>
 """, unsafe_allow_html=True)
