@@ -44,63 +44,72 @@ st.set_page_config(
     layout="wide"
 )
 
-# ====================== QUINDAR-INSPIRED STYLING v2 ======================
+# ====================== QUINDAR-INSPIRED STYLING v3 ======================
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-    /* Base font */
+    /* Base */
     html, body, [class*="css"] {
         font-family: 'Space Grotesk', system-ui, sans-serif !important;
     }
 
-    /* Clean white background */
     .stApp {
         background-color: #FFFFFF !important;
     }
 
-    /* Dark text + better contrast */
-    .stMarkdown, p, label, .stTextInput label, .stSelectbox label,
-    .stNumberInput label, .stTextArea label {
+    /* Text color */
+    .stMarkdown, p, label {
         color: #0F172A !important;
     }
 
-    /* Light, modern input fields */
+    /* Light input fields */
     .stTextInput > div > div > input,
-    .stSelectbox > div > div > div,
-    .stNumberInput > div > div > input,
-    .stTextArea > div > div > textarea {
+    .stTextArea > div > div > textarea,
+    .stSelectbox > div > div > div[role="combobox"],
+    .stNumberInput > div > div > input {
         background-color: #F8FAFC !important;
         color: #0F172A !important;
-        border: 1px solid #E2E8F0 !important;
+        border: 1px solid #CBD5E1 !important;
         border-radius: 8px !important;
     }
 
-    /* Headings - cleaner Quindar style */
-    h1, h2, h3, h4, h5, h6 {
-        font-family: 'Space Grotesk', sans-serif !important;
-        font-weight: 700 !important;
-        letter-spacing: -0.025em;
+    /* Fix number input buttons */
+    .stNumberInput button {
+        background-color: #F1F5F9 !important;
         color: #0F172A !important;
     }
 
-    h1 {
-        font-size: 2.1rem !important;
-        margin-bottom: 0.5rem !important;
+    /* File uploader */
+    .stFileUploader > div > div {
+        background-color: #F8FAFC !important;
+        border: 2px dashed #94A3B8 !important;
+        border-radius: 8px !important;
     }
 
-    /* Section headers (1. INPUTS, 2. GENERATE, etc.) */
+    .stFileUploader label {
+        color: #0F172A !important;
+    }
+
+    /* Section headers */
     .stMarkdown h2 {
         text-transform: uppercase;
         font-weight: 700;
-        letter-spacing: 0.5px;
-        margin-top: 2rem !important;
-        color: #0F172A;
+        letter-spacing: 0.8px;
+        color: #0F172A !important;
+        margin-top: 2.2rem !important;
+        margin-bottom: 1.2rem !important;
+    }
+
+    /* Main title */
+    h1 {
+        font-size: 2.4rem !important;
+        font-weight: 700 !important;
+        letter-spacing: -0.03em;
     }
 
     /* Buttons */
     .stButton>button {
-        font-family: 'Space Grotesk', sans-serif;
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.8px;
@@ -111,12 +120,6 @@ st.markdown("""
     .stTabs [data-baseweb="tab"] {
         text-transform: uppercase;
         font-weight: 600;
-        letter-spacing: 0.5px;
-    }
-
-    /* Success/Warning boxes */
-    .stSuccess, .stWarning {
-        border-radius: 8px;
     }
     </style>
 """, unsafe_allow_html=True)
