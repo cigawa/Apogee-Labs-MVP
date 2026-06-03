@@ -45,16 +45,16 @@ st.set_page_config(
     layout="wide"
 )
 
-# ====================== CUSTOM FUTURISTIC FONT ======================
+# ====================== QUINDAR-STYLE FONT ======================
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
     html, body, [class*="css"] {
-        font-family: 'Space Grotesk', sans-serif !important;
+        font-family: 'Space Grotesk', system-ui, sans-serif !important;
     }
 
-    h1, h2, h3, h4, h5, h6, .stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {
+    h1, h2, h3, h4, h5, h6 {
         font-family: 'Space Grotesk', sans-serif !important;
         font-weight: 600;
     }
@@ -65,7 +65,7 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
-# ===================================================================
+# ===============================================================
 
 # --- session state ----------------------------------------------------------
 for key in ("results", "extracted"):
