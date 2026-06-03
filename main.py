@@ -44,33 +44,58 @@ st.set_page_config(
     layout="wide"
 )
 
-# ====================== QUINDAR-INSPIRED STYLING ======================
+# ====================== QUINDAR-INSPIRED STYLING v2 ======================
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-    /* Overall */
+    /* Base font */
     html, body, [class*="css"] {
         font-family: 'Space Grotesk', system-ui, sans-serif !important;
     }
 
-    /* White background + dark text */
+    /* Clean white background */
     .stApp {
         background-color: #FFFFFF !important;
     }
-    
-    .stMarkdown, .stMarkdown p, .stTextInput label, .stSelectbox label,
-    .stNumberInput label, .stTextArea label, .stFileUploader label {
+
+    /* Dark text + better contrast */
+    .stMarkdown, p, label, .stTextInput label, .stSelectbox label,
+    .stNumberInput label, .stTextArea label {
         color: #0F172A !important;
     }
 
-    /* Headings - bold + uppercase */
+    /* Light, modern input fields */
+    .stTextInput > div > div > input,
+    .stSelectbox > div > div > div,
+    .stNumberInput > div > div > input,
+    .stTextArea > div > div > textarea {
+        background-color: #F8FAFC !important;
+        color: #0F172A !important;
+        border: 1px solid #E2E8F0 !important;
+        border-radius: 8px !important;
+    }
+
+    /* Headings - cleaner Quindar style */
     h1, h2, h3, h4, h5, h6 {
         font-family: 'Space Grotesk', sans-serif !important;
         font-weight: 700 !important;
-        text-transform: uppercase !important;
-        letter-spacing: -0.02em;
+        letter-spacing: -0.025em;
         color: #0F172A !important;
+    }
+
+    h1 {
+        font-size: 2.1rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    /* Section headers (1. INPUTS, 2. GENERATE, etc.) */
+    .stMarkdown h2 {
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        margin-top: 2rem !important;
+        color: #0F172A;
     }
 
     /* Buttons */
@@ -78,13 +103,20 @@ st.markdown("""
         font-family: 'Space Grotesk', sans-serif;
         font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.8px;
+        border-radius: 8px;
     }
 
     /* Tabs */
     .stTabs [data-baseweb="tab"] {
         text-transform: uppercase;
         font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    /* Success/Warning boxes */
+    .stSuccess, .stWarning {
+        border-radius: 8px;
     }
     </style>
 """, unsafe_allow_html=True)
