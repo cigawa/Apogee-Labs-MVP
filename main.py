@@ -38,33 +38,19 @@ from templates import (
     RECOMMENDATIONS_SYSTEM, build_recommendations_prompt,
     REPORT_SYSTEM, build_report_prompt,
 )
-st.set_page_config(
-    page_title="APOGEE LABS — VIBRATION TEST AUTOMATION",
-    page_icon="🛰️", 
-    layout="wide"
-)
 
-# ====================== SIMPLE SPACE GROTESK STYLING ======================
-st.markdown("""
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+st.set_page_config(page_title="Apogee Labs — Vibration Test Automation",
+                   page_icon="🛰️", layout="wide")
 
-    html, body, [class*="css"] {
-        font-family: 'Space Grotesk', system-ui, sans-serif !important;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        font-family: 'Space Grotesk', sans-serif !important;
-        font-weight: 600 !important;
-    }
-
-    .stButton>button {
-        font-family: 'Space Grotesk', sans-serif;
-        font-weight: 600;
-    }
-    </style>
-""", unsafe_allow_html=True)
-# =====================================================================
+# On Streamlit Cloud, API keys arrive via st.secrets; copy them into the
+# environment variables the rest of the code (and the SDKs) read.
+# Locally, an already-set environment variable takes precedence.
+try:
+    for _k in ("ANTHROPIC_API_KEY", "OPENAI_API_KEY", "VOYAGE_API_KEY"):
+        if not os.environ.get(_k) and _k in st.secrets:
+            os.environ[_k] = st.secrets[_k]
+except Exception:
+    pass  # st.secrets may not exist locally; that's fine
 
 # --- session state ----------------------------------------------------------
 for key in ("results", "extracted"):

@@ -12,8 +12,13 @@ cadquery>=2.4
 
 # RAG (LlamaIndex). The app falls back to TF-IDF if these are absent or if the
 # knowledge_base/ folder is empty, so they are optional until you add documents.
-# The HuggingFace embeddings pull in torch (large). On Streamlit Cloud this is
-# fine; locally on Windows ARM, prefer running RAG on the Cloud deployment.
+# Uses HOSTED embeddings (OpenAI by default) — lightweight, no torch, fits the
+# Streamlit Community Cloud free-tier memory limit. Needs OPENAI_API_KEY set in
+# Streamlit secrets. To use local/private embeddings instead, add
+# llama-index-embeddings-huggingface and set APOGEE_EMBED_BACKEND=local (only on
+# a big-memory host like Hugging Face Spaces — torch will blow the free tier).
 llama-index-core>=0.11
 llama-index-readers-file>=0.2
-llama-index-embeddings-huggingface>=0.3
+llama-index-embeddings-openai>=0.2
+# Optional alternative (Anthropic's recommended embeddings):
+# llama-index-embeddings-voyageai>=0.2

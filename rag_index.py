@@ -54,21 +54,34 @@ def _configure_embeddings():
     """Set the global LlamaIndex embedding model based on env config."""
     from llama_index.core import Settings
 
-    backend = os.environ.get("APOGEE_EMBED_BACKEND", "local").lower()
+    # Default is now HOSTED embeddings (lightweight, no torch) so the app fits
+    # within free-tier memory limits. Options: "openai" (default), "voyage",
+    # or "local" (HuggingFace/torch — heavy, only for big-memory hosts).
+    backend = os.environ.get("APOGEE_EMBED_BACKEND", "openai").lower()
 
-    if backend == "openai":
-        # Hosted: cheap, easy; needs OPENAI_API_KEY
-        from llama_index.embeddings.openai import OpenAIEmbedding
-        Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small")
-    else:
-        # Local: free, private, no API. Small fast model, good quality.
+    if backend == "voyage":
+        # Voyage AI — Anthropic's recommended embeddings. Needs VOYAGE_API_KEY.
+        from llama_index.embeddings.voyageai import VoyageEmbedding
+        Settings.embed_model = VoyageEmbedding(
+            model_name="voyage-3",
+            voyage_api_key=os.environ.get("VOYAGE_API_KEY"),
+        )
+    elif backend == "local":
+        # Local: free, private, but pulls in torch (large). Only use on a
+        # host with plenty of memory (e.g. Hugging Face Spaces), NOT the
+        # Streamlit Community Cloud free tier.
         from llama_index.embeddings.huggingface import HuggingFaceEmbedding
         Settings.embed_model = HuggingFaceEmbedding(
             model_name="BAAI/bge-small-en-v1.5"
         )
+    else:
+        # Hosted OpenAI embeddings (default): cheap, tiny memory footprint.
+        # Needs OPENAI_API_KEY.
+        from llama_index.embeddings.openai import OpenAIEmbedding
+        Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small")
 
     # We do retrieval only here; the LLM call happens in claude_client.
-    # Disable LlamaIndex's own LLM so it doesn't require an OpenAI key.
+    # Disable LlamaIndex's own LLM so it doesn't require an extra key.
     Settings.llm = None
     Settings.chunk_size = CHUNK_SIZE
     Settings.chunk_overlap = CHUNK_OVERLAP
